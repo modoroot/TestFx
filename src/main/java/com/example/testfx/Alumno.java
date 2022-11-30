@@ -1,7 +1,5 @@
 package com.example.testfx;
 
-import java.util.Date;
-
 public class Alumno {
     private String nombre;
     private String apellidos;
