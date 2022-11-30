@@ -9,25 +9,23 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class HelloApplication extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
-        TableView<Alumno> tablaAlumnos = new TableView<Alumno>();
+    public void start(Stage stage) {
+        TableView<Alumno> tablaAlumnos = new TableView<>();
         tablaAlumnos.setEditable(true);
-        TableColumn<Alumno, String> columnaNombre = new TableColumn<Alumno, String>("Nombre");
+        TableColumn<Alumno, String> columnaNombre = new TableColumn<>("Nombre");
         columnaNombre.setMinWidth(300);
         //Para que en cada celda aparezca el atributo nombre de la clase Alumno
-        columnaNombre.setCellValueFactory(new PropertyValueFactory<Alumno, String>("nombre"));
+        columnaNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 
-        TableColumn<Alumno, String> columnaApellidos = new TableColumn<Alumno, String>("Apellidos");
+        TableColumn<Alumno, String> columnaApellidos = new TableColumn<>("Apellidos");
         columnaApellidos.setMinWidth(300);
-        columnaApellidos.setCellValueFactory(new PropertyValueFactory<Alumno, String>("apellidos"));
+        columnaApellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
 
-        TableColumn<Alumno, String> columnaEdad = new TableColumn<Alumno, String>("Edad");
+        TableColumn<Alumno, String> columnaEdad = new TableColumn<>("Edad");
         columnaEdad.setMinWidth(300);
-        columnaEdad.setCellValueFactory(new PropertyValueFactory<Alumno, String>("edad"));
+        columnaEdad.setCellValueFactory(new PropertyValueFactory<>("edad"));
         //Añade las columnas al TableView
         tablaAlumnos.getColumns().addAll(columnaNombre,columnaApellidos,columnaEdad);
 
@@ -35,9 +33,9 @@ public class HelloApplication extends Application {
         lista.add(new Alumno("Nombre 1", "Ape 1", 13));
         lista.add(new Alumno("Nombre 2", "Ape 2", 15));
         lista.add(new Alumno("Nombre 3", "Ape 3", 16));
-        columnaNombre.setCellValueFactory(new PropertyValueFactory<Alumno,String>("nombre"));
-        columnaApellidos.setCellValueFactory(new PropertyValueFactory<Alumno,String>("apellidos"));
-        columnaEdad.setCellValueFactory(new PropertyValueFactory<Alumno,String>("edad"));
+        columnaNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        columnaApellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
+        columnaEdad.setCellValueFactory(new PropertyValueFactory<>("edad"));
         tablaAlumnos.setItems(lista);
 
         VBox panelPrincipal = new VBox();
